@@ -1,0 +1,39 @@
+
+<div class="add-product mt-4">
+    <h3 class="text-center">Add New Product</h3>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8">
+                <div class="mb-3">
+                    <input type="text" placeholder="Add Image" class="form-control" formControlName="image">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="mb-3">
+                    <input type="text" placeholder="Enter Product Name" class="form-control" formControlName="p_name">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="mb-3">
+                    <input type="text" placeholder="Enter Quantity" class="form-control" formControlName="quantity">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="mb-3">
+                    <input type="text" placeholder="Enter Price" class="form-control" formControlName="price">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="mb-3">
+                    <input type="text" placeholder="Enter Description" class="form-control" formControlName="description">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="text-end mb-3">
+                   <button type="submit" class="btn-common">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

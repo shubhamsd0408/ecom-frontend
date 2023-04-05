@@ -1,0 +1,45 @@
+<div class="user-header-wrapper">
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-brand">
+            <a href="#">Brandzoo</a>
+        </div>
+        <div class="container-fluid">
+          <div class="navbar-nav-wrap" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item" routerLink="/home">
+                   <a class="admin-link">Home</a>
+                </li>
+              <li class="nav-item">
+                <ul class="cart">
+                  <li class="cart-item">
+                    <a (click)="openCart()" class="cart-link">
+                      <i class="fa-solid fa-cart-plus"></i>
+                      <span class="bell">{{_commonService.CartCount}}</span>
+                    </a>
+                  </li>
+                  <li class="cart-item">
+                    <a class="cart-link"><i class="fa-solid fa-heart"></i></a>
+                  </li>
+                  <li class="cart-item">
+                    <a class="cart-link" routerLink="/login">Login</a>
+                  </li>
+                  <li class="cart-item">
+                    <a class="cart-link" routerLink="/register">Register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page">Welcome, Shubham</a>
+                    <div class="user-icon rounded-circle"><i class="fa-solid fa-user"></i></div>
+                 </li>
+                 </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+</div>
+
+<div class="cart-details-wrapper">
+    <div class="cart-details"  [ngClass]="cartStatus ? 'cart-open':''">
+      <app-cart-details [data]='cartData'></app-cart-details>
+    </div>
+</div>

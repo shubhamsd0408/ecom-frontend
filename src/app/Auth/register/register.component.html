@@ -1,0 +1,37 @@
+<div class="register-wrapper">
+    <form [formGroup]="registerForm">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="register">
+                    <h2 class="title">Register</h2>
+                    <div class="row">
+                        <div class="col-lg-12 mb-3">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" placeholder="Enter Name" class="input-field" formControlName="fname">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="text" placeholder="name@example.com" class="input-field" formControlName="email">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="text" placeholder="Enter Password" class="input-field" formControlName="password">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <div class="form-group">
+                               <button class="btn-common" (click)="registerUser()">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+</div>

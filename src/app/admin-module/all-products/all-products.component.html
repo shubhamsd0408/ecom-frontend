@@ -1,0 +1,31 @@
+<div class="search-wrapper">
+  <input type="text" [(ngModel)]="userFilter.p_name" placeholder="Search Products">
+</div>
+<table class="table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of allProductsData | paginate: { itemsPerPage: 4, currentPage: p } | filterBy: userFilter;let i = index">
+      <td>{{i+1}}</td>
+      <td><img height="100px" width="100px" [src]="item.image" alt=""></td>
+      <td>{{item.p_name}}</td>
+      <td>{{item.quantity}}</td>
+      <td>${{item.price}}</td>
+      <td>{{item.description}}</td>
+      <td><button routerLink="/edit-product/{{item._id}}" type="button" class="btn-common">Edit</button></td>
+      <td><button type="button" (click)="ondelete(item)" class="btn-common del">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>

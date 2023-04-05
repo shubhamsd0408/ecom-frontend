@@ -18,7 +18,10 @@
     "@angular/platform-browser": "~13.0.0-next.0",
     "@angular/platform-browser-dynamic": "~13.0.0-next.0",
     "@angular/router": "~13.0.0-next.0",
+    "ngx-filter-pipe": "^2.1.2",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.4.0",
+    "sweetalert2": "^11.7.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

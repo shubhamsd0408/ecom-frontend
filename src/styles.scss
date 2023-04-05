@@ -1,1 +1,225 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Poppins", sans-serif;
+}
+// admin module
+.global-wrapper {
+  display: flex;
+  .sidebar {
+    height: 100vh;
+    background: #4723d9;
+    width: 210px;
+    text-align: center;
+    .navbar-brand {
+      padding: 1.4rem;
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.5rem;
+        color: white;
+        font-family: "Pacifico", cursive;
+        letter-spacing: 2px;
+      }
+    }
+    .sidenav-wrapper {
+      display: flex;
+      justify-content: center;
+      .admin-list {
+        list-style-type: none;
+        padding: 0;
+        .admin-list-item {
+          padding: 1.2rem 0;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          .svg-inline--fa {
+            color: #fff;
+          }
+          .admin-link {
+            color: #fff;
+            text-decoration: none;
+            padding-left: 8px;
+          }
+        }
+      }
+    }
+  }
+  .main-content {
+    width: calc(100% - 210px);
+    overflow: hidden;
+    .navbar {
+      background: #f7f6fb;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+      padding: 1rem;
+      .navbar-nav-wrap {
+        width: 100%;
+        .navbar-nav {
+          display: flex;
+          justify-content: space-between;
+          .nav-item {
+            display: flex;
+            align-items: center;
+            a {
+              color: #4723d9;
+            }
+            .user-icon {
+              border: 1px solid #4723d9;
+              padding: 2px 6px;
+              color: #4723d9;
+            }
+            .cart {
+              display: flex;
+              list-style-type: none;
+              margin-right: 10px;
+              .cart-item {
+                margin-right: 20px;
+                .cart-link {
+                  position: relative;
+                  cursor: pointer !important;
+                  .bell {
+                    position: absolute;
+                    top: -8px;
+                    right: -13px;
+                    background-color: red;
+                    color: #fff;
+                    height: 18px;
+                    width: 18px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    font-size: 14px;
+                  }
+                  .svg-inline--fa {
+                    font-size: 22px;
+                  }
+                }
+                &:last-of-type {
+                  margin-right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .outlet-wrapper {
+      height: calc(100vh - 72px);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+.btn-common {
+  background-color: #4723d9;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  &.del {
+    background-color: #ee382c;
+  }
+  &:hover {
+    color: #fff;
+  }
+}
+
+// user module
+.user-header-wrapper {
+  .navbar {
+    background: #f7f6fb;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem;
+    .navbar-nav-wrap {
+      width: 100%;
+      .navbar-nav {
+        display: flex;
+        justify-content: space-between;
+        .nav-item {
+          display: flex;
+          align-items: center;
+          a {
+            color: #4723d9;
+          }
+          .user-icon {
+            border: 1px solid #4723d9;
+            padding: 2px 6px;
+            color: #4723d9;
+          }
+          .cart {
+            display: flex;
+            list-style-type: none;
+            margin-right: 10px;
+            .cart-item {
+              margin-right: 20px;
+              .cart-link {
+                position: relative;
+                cursor: pointer;
+                .bell {
+                  position: absolute;
+                  top: -8px;
+                  right: -13px;
+                  background-color: red;
+                  color: #fff;
+                  height: 18px;
+                  width: 18px;
+                  border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  font-size: 14px;
+                }
+                .svg-inline--fa {
+                  font-size: 22px;
+                }
+              }
+              &:last-of-type {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.register-wrapper{
+   
+    .register{
+        margin-top: 100px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 2rem 3rem;
+        .title{
+            text-align: center;
+        }
+        .form-group{
+            display: flex;
+            flex-direction: column;
+            .form-label{
+                font-size: 12px;
+            }
+            .input-field{
+                padding: 0.6rem 1rem;
+                border: 1px solid #d9d9d9;
+                &:focus{
+                    border: 1px solid #d9d9d9;
+                    box-shadow: 0;
+                    outline: none;
+                }
+            }
+        }
+        
+    }
+}
+.search-wrapper{
+  display: flex;
+  justify-content: end;
+  margin: 20px 30px;
+  input{
+      border: 1px solid #1164e0;
+      padding: 10px 20px;
+      border-radius: 0px;
+      &:focus{
+          outline: none;
+      }
+  }
+}
