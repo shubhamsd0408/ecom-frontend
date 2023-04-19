@@ -17,6 +17,7 @@ import { UserHeaderComponent } from './user-module/user-header/user-header.compo
 import { CartDetailsComponent } from './user-module/cart-details/cart-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { PlacedOrderComponent } from './user-module/placed-order/placed-order.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
     LoginComponent,
     UserHeaderComponent,
     CartDetailsComponent,
+    PlacedOrderComponent,
   ],
   imports: [
     BrowserModule,

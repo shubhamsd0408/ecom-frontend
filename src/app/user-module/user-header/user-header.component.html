@@ -12,22 +12,26 @@
               <li class="nav-item">
                 <ul class="cart">
                   <li class="cart-item">
-                    <a (click)="openCart()" class="cart-link">
+                    <a (click)="openCart()" class="cart-link" *ngIf="uName !== null">
                       <i class="fa-solid fa-cart-plus"></i>
-                      <span class="bell">{{_commonService.CartCount}}</span>
+                      <span class="bell" *ngIf="_commonService.CartCount != 0 && uName !== null">{{_commonService.CartCount}}</span>
                     </a>
                   </li>
-                  <li class="cart-item">
-                    <a class="cart-link"><i class="fa-solid fa-heart"></i></a>
-                  </li>
-                  <li class="cart-item">
+                  
+                  <li class="cart-item" *ngIf="uemail == null">
                     <a class="cart-link" routerLink="/login">Login</a>
                   </li>
+                  
+                  <li class="cart-item" *ngIf="uemail !== null" >
+                    <a class="cart-link" (click)="logout()">Logout</a>
+                  </li>
+
+              
                   <li class="cart-item">
                     <a class="cart-link" routerLink="/register">Register</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">Welcome, Shubham</a>
+                    <a class="nav-link active" aria-current="page">{{uemail}}</a>
                     <div class="user-icon rounded-circle"><i class="fa-solid fa-user"></i></div>
                  </li>
                  </ul>
@@ -42,4 +46,5 @@
     <div class="cart-details"  [ngClass]="cartStatus ? 'cart-open':''">
       <app-cart-details [data]='cartData'></app-cart-details>
     </div>
+    <div class="overlay" [ngClass]="cartStatus ? 'show':''" (click)="closePop()" ></div>
 </div>

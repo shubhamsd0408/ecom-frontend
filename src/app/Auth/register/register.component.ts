@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/common.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { CommonService } from 'src/app/common.service';
 export class RegisterComponent implements OnInit {
 
   registerForm:any;
-  constructor(private _commonService:CommonService) { }
+  constructor(private _commonService:CommonService,private _router:Router) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
     // console.log(this.registerForm.value);
     this._commonService.newRegister(this.registerForm.value).subscribe((res:any)=>{
       console.log(res);
+      this._router.navigate(['/login']);
     })
   }
 }

@@ -12,7 +12,7 @@
           <h5 class="card-title">{{item.p_name}}</h5>
           <p>₹:-{{item.price}}</p>
           <p class="card-text">{{item.description}}</p>
-          <a (click)="addCart(item)" class="btn-common">Add To Cart</a>
+          <button class="btn-common" (click)="addCart(item)" [disabled]="itemExists.includes(item._id)" >Add To Cart</button>
         </div>
     </div>
  </div>

@@ -40,18 +40,44 @@ export class AllProductsComponent implements OnInit {
 
 
   ondelete(data:any){
-    return this._http.delete("http://localhost:9000/aliens/del/" + data._id).subscribe((res:any)=>{
-      console.log(res);
-      this.getProduct1();
-      console.log(this.allProductsData);
-    });
+    // return this._http.delete("http://localhost:9000/aliens/del/" + data._id).subscribe((res:any)=>{
+    //   console.log(res);
+    //   this.getProduct1();
+    // });
+
     // this._commonService.deleteProducts(data._id).subscribe((res:string)=>{
-    //   this._commonService.getAllProducts().subscribe((res:any)=>{
-    //     this.allProductsData = res.json();
-    //     this.changeDetectorRef.detectChanges();
-    //   })
-      
+    //   console.log(res);
+    //   this.getProduct1();
     // })
+
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+          // this.common.deleteEmployee(id).subscribe(res=>{
+          // console.log(res);
+          // this.getEmp();  
+          // console.log("hiii");
+             
+          // })
+          this._commonService.deleteProducts(data._id).subscribe((res:string)=>{
+            console.log(res);
+            this.getProduct1();
+          })
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   }
 
 

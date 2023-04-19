@@ -1,21 +1,23 @@
 <!-- User Module -->
-<app-user-header *ngIf="hdrouter == '/home'"></app-user-header>
+<app-user-header *ngIf="hdrouter == '/home'" ></app-user-header>
 <!-- Admin section -->
 <div class="global-wrapper">
-  <div class="sidebar" *ngIf="hdrouter !== '/home'">
+  <div class="sidebar" *ngIf="hdrouter !== '/home' && hdrouter == '/all-products' || hdrouter == '/add-products'" >
     <app-sidebar></app-sidebar>
   </div>
-  <div class="main-content" [ngClass]="hdrouter == '/home' ? 'w-100':''">
-    <div class="header" *ngIf="hdrouter !== '/home'">
+  <div class="main-content" [ngClass]="hdrouter == '/home' || hdrouter == '/login'  ? 'w-100':'' || hdrouter == '/register'  ? 'w-100':''">
+    <div class="header" *ngIf="hdrouter !== '/home' && hdrouter == '/all-products' || hdrouter == '/add-products'" >
       <app-header></app-header>
     </div>
     <div class="container">
-      <div class="outlet-wrapper">
+      <div class="outlet-wrapper" [ngClass]="hdrouter == '/home' ? 'ht':''">
         <router-outlet></router-outlet>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 

@@ -55,7 +55,7 @@ body {
         width: 100%;
         .navbar-nav {
           display: flex;
-          justify-content: space-between;
+          justify-content: end;
           .nav-item {
             display: flex;
             align-items: center;
@@ -150,11 +150,13 @@ body {
             display: flex;
             list-style-type: none;
             margin-right: 10px;
+            align-items: center;
             .cart-item {
               margin-right: 20px;
               .cart-link {
                 position: relative;
                 cursor: pointer;
+                text-decoration: none;
                 .bell {
                   position: absolute;
                   top: -8px;

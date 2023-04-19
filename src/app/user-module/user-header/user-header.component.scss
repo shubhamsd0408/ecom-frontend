@@ -9,8 +9,39 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow-y:auto;
     transition: all 0.5s;
-    z-index: 1;
+    z-index: 2;
     &.cart-open{
         right: 0;
+    }
+}
+.navbar-brand{
+    padding-top: 0;
+    a{
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    font-family: "Pacifico", cursive;
+    letter-spacing: 2px;
+    color: #4723d9;
+    }
+}
+.admin-link{
+    text-decoration: none;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.6);
+    opacity: 0;
+    visibility: hidden;
+    &.show{
+    opacity: 1;
+    visibility: visible; 
+    z-index: 1;
     }
 }

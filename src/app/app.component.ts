@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { CommonService } from './common.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,14 @@ export class AppComponent implements OnInit {
   constructor(
     private _router: Router,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private _commonService:CommonService
   ) {}
 
   ngOnInit(): void {
-    this.hdrouter = this.location.path();
+    this._commonService.routeNameSubject.subscribe((res:any)=>{
+      this.hdrouter = res;
+    })
+   
   }
 }

@@ -1,0 +1,15 @@
+.profile{
+    position: relative;
+    .dropdown-toggle{
+        &::after{
+           display: none;
+        }
+
+    }
+    .dropdown-menu[data-bs-popper]{
+        position: absolute;
+        &.show{
+            right: 0 !important;
+        }
+    }
+}

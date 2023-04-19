@@ -1,43 +1,71 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import{Observable, Subject } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import{Observable, Subject, filter } from 'rxjs';
 import { BehaviorSubject } from 'rxjs'; 
-
+import { Location } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
+// import 'rxjs/operator/filter';
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
+  currentRoute: any;
+  // routeName: string;
+  constructor(private _http:HttpClient,  public location: Location ,private router: Router) { 
+    // this.routeName = this.location.path();
+    // this.routeNameSubject.next(this.routeName);
+    this.router.events.pipe(
+      filter((event:any) => event instanceof NavigationEnd)
+    )
+    .subscribe((event:any) => 
+     {
+        this.currentRoute = event.url;          
+        this.routeNameSubject.next(this.currentRoute);
+     });
+}
+  
 
-  constructor(private _http:HttpClient) { }
 
+  
   apiUrl ="http://localhost:9000/aliens/";
   userApiUrl ="http://localhost:9000/users/";
 
   public cartItemsSubject =new BehaviorSubject('');
   public cartpopupSubject =new BehaviorSubject('');
   public cartDetailsSubject =new BehaviorSubject('');
+  public usernameSubject =new BehaviorSubject('');
+  public userLogoutSubject =new BehaviorSubject('');
   public sibcomSubject =new BehaviorSubject(true);
-  CartCount: any
-
+  CartCount: number|undefined;
+  public overlayPopCloseSubject =new BehaviorSubject('');
+  public routeNameSubject =new BehaviorSubject('');
 
  
+  getUsername(data:any){
+    this.usernameSubject.next(data);
+  }
+ 
+  //Logout user
+  logoutUser(data:any){
+    this.usernameSubject.next(data);
+  }
   getCartDetailsItem(data:any){
     this.cartDetailsSubject.next(data);
-    console.log('service data', data)
     this.CartCount = data.length
   }
-
   getCartItems(data:any){
     this.cartItemsSubject.next(data);
   }
-
   getPopupStatus(data:any){
     this.cartpopupSubject.next(data);
   }
 
+
   grtCartItems(){
     return this._http.get(this.userApiUrl);
   }
+  // 
+
 
   // Get All products
   getAllProducts(){
@@ -49,7 +77,7 @@ export class CommonService {
   }
   // Delete
   deleteProducts(id:any):Observable<any>{
-    return this._http.delete(`${this.apiUrl}${id}`);
+    return this._http.delete(this.apiUrl +'del/' +id);
   }
   //Get Product by id
   getPrductsById(id:any){
@@ -67,7 +95,7 @@ export class CommonService {
   // User login
 
   loginUser(data:any){
-    console.log(data, 'serveice');
+    // console.log(data, 'serveice');
     return this._http.post(this.userApiUrl + 'login',data);
   }
 
