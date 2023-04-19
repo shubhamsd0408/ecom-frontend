@@ -27,8 +27,8 @@ export class CommonService {
 
 
   
-  apiUrl ="http://localhost:9000/aliens/";
-  userApiUrl ="http://localhost:9000/users/";
+  apiUrl ="https://brzu-backend.onrender.com/aliens/";
+  userApiUrl ="https://brzu-backend.onrender.com/users/";
 
   public cartItemsSubject =new BehaviorSubject('');
   public cartpopupSubject =new BehaviorSubject('');
