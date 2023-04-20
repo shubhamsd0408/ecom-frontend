@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
     });
     this.token_id = localStorage.getItem('token');
     this.getCartItems();
+
   }
 
   getCartItems() {
@@ -45,7 +46,7 @@ export class HomeComponent implements OnInit {
       this._router.navigate(['login']);
     }
     else{
-      let uid = localStorage.getItem('uID');
+    let uid = localStorage.getItem('uID');
     data._uid = uid;
     this._commonService.addTocart(data).subscribe((res: any) => {
       this.addCartData =res;

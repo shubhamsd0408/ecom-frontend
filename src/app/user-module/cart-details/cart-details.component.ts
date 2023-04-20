@@ -10,7 +10,7 @@ import { CommonService } from 'src/app/common.service';
 export class CartDetailsComponent implements OnInit {
   allProducts: any;
   detailsId: any;
-  cartDetails: any = [];
+  cartDetails:any[] = []
   p_quantity: any = 1;
   total_price: any;
   g_price: any;
@@ -45,7 +45,7 @@ export class CartDetailsComponent implements OnInit {
   getcartProductsById() {
     this._commonService.getAllProducts().subscribe((res: any) => {
       this.allProducts = res;
-      this.cartDetails = [];
+      this.cartDetails= [];
       let logUserId = localStorage.getItem('uID');
       this.allProducts.filter((item: any) => {
         this.data.map((ele: any) => {
